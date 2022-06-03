@@ -74,7 +74,7 @@ var random = Math.floor((Math.random() * 3) + 1);
  */
 
 function calculateTip(x, y) {
-    return x * y;
+    return x + x * y;
 }
 console.log(calculateTip(10, .2))
 
@@ -106,8 +106,5 @@ console.log(calculateTip(10, .2))
 
 function applyDiscount(x, y) {
     return x - (x * y)
-
 }
-let price = prompt("What is the bill");
-let discount = prompt("How big is the discount")
-console.log(applyDiscount(price, discount));
+console.log(applyDiscount(10, .2));
