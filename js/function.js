@@ -10,9 +10,9 @@
  */
 
 //function sayHello(name) {
-//    alert ("Hello " + name);
+//    return ("Hello " + name);
 //}
-//sayHello(prompt("Whats your name?"))
+
 
 /**
  * TODO:

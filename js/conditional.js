@@ -22,19 +22,20 @@
  * console.logging the function's return value
  */
 
-function analyzeColor() {
-    if (blue) {
-        return = "The sky is blue."
-    } else if (red) {
-        return = "Roses are red."
-    } else if (yellow) {
-        return = "Lemons are yellow."
-    } else if (green) {
-        return = "Grass is green."
-    }
-}
-analyzeColor()
-
+//function analyzeColor(color) {
+//    if (color === "blue") {
+//        return ("The sky is " + "blue");
+//    } else if (color === "red") {
+//        return ("Roses are " + "red");
+//    } else if (color === "yellow") {
+//        return ("Lemons are " + "yellow");
+//    } else if (color === "green") {
+//        return ("Grass is " + "green");
+//    } else {
+//        return ("That color sucks");
+//    }
+//}
+//console.log(analyzeColor("red"));
 
 
 // Don't change the next two lines!
@@ -50,10 +51,31 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * You should see a different message every time you refresh the page
  */
 
+//console.log(analyzeColor(randomColor))
+
 /**
  * TODO:
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
+
+//let favColor = prompt ("What is your favorite color?")
+//
+//    switch(favColor) {
+//        case "blue":
+//            alert ("The sky is " + "blue");
+//            break;
+//        case "red":
+//            alert ("Roses are " + "red");
+//            break;
+//        case "yellow":
+//            alert ("Lemons are " + "yellow");
+//            break;
+//        default:
+//            alert ("That color is ok.");
+//            break;
+//    }
+
+
 
 /**
  * TODO:
@@ -61,6 +83,9 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+
+//let userColor = prompt("Pick a color.");
+//alert (analyzeColor(userColor));
 
 /* ########################################################################## */
 
@@ -84,6 +109,26 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * return value.
  */
 
+
+
+//function calculateTotal(luckyNumber, totalAmount) {
+//    if (luckyNumber === 0) {
+//        return (totalAmount * 1);
+//    } else if (luckyNumber === 1) {
+//        return (totalAmount * .9);
+//    } else if (luckyNumber === 2) {
+//        return (totalAmount * .75);
+//    } else if (luckyNumber === 3) {
+//        return (totalAmount * .65);
+//    } else if (luckyNumber === 4) {
+//        return (totalAmount * .5);
+//    } else {
+//        return (0)
+//    }
+//}
+//console.log(calculateTotal(1,5));
+
+
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 5.
@@ -92,8 +137,14 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * and alerts to display to the user what their lucky number was, what their
  * price before the discount was, and what their price after the discount is.
  */
-// Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+//Generate a random number between 0 and 6
+//var luckyNumber = Math.floor(Math.random() * 6);
+//
+//    let userTotal = prompt("Please enter your total bill.")
+//    alert ("Your lucky number is: " + (luckyNumber) + ", your" +
+//        "price before the discount is " + userTotal + ", your price after"
+//        + " the discount is " + calculateTotal(luckyNumber, userTotal));
+
 
 /**
  * TODO:
@@ -113,3 +164,30 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+
+let uNumber = confirm("Would you like to enter a number?");
+let evenOrOdd;
+let posOrNeg;
+if (uNumber === true) {
+    let enterNumber = prompt("Please enter a number?");
+        if (typeof enterNumber !== 'number') {
+            if (enterNumber % 2 === 0) {
+                evenOrOdd = 'even'
+            } else {
+                evenOrOdd = 'odd'
+            }
+            alert("The number is " + evenOrOdd);
+            alert("Your number + 100 is " + (parseInt(enterNumber) + 100));
+            if (enterNumber > 0) {
+                posOrNeg = 'Positive'
+            } else {
+                posOrNeg = 'Negative'
+            }
+            alert("Your number is " + (posOrNeg));
+        } else {
+            alert("Incorrect input data type.");
+            // enterNumber = prompt("Please enter a number?");
+        }
+} else {
+    alert("Fine be that way!.");
+}
