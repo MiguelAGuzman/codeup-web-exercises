@@ -169,25 +169,25 @@ let uNumber = confirm("Would you like to enter a number?");
 let evenOrOdd;
 let posOrNeg;
 if (uNumber === true) {
-    let enterNumber = prompt("Please enter a number?");
-        if (typeof enterNumber !== 'number') {
-            if (enterNumber % 2 === 0) {
-                evenOrOdd = 'even'
-            } else {
-                evenOrOdd = 'odd'
-            }
-            alert("The number is " + evenOrOdd);
-            alert("Your number + 100 is " + (parseInt(enterNumber) + 100));
-            if (enterNumber > 0) {
-                posOrNeg = 'Positive'
-            } else {
-                posOrNeg = 'Negative'
-            }
-            alert("Your number is " + (posOrNeg));
-        } else {
-            alert("Incorrect input data type.");
-            // enterNumber = prompt("Please enter a number?");
+    let enterNumber = parseFloat(prompt("Please enter a number?"));
+        while (isNaN(enterNumber)) {
+            alert("Please enter a valid number")
+            enterNumber = prompt("Please enter a number?");
         }
+        if (enterNumber % 2 === 0) {
+            evenOrOdd = 'even'
+        } else {
+            evenOrOdd = 'odd'
+        }
+        alert("The number is " + evenOrOdd);
+        alert("Your number + 100 is " + (parseInt(enterNumber) + 100));
+        if (enterNumber > 0) {
+            posOrNeg = 'Positive'
+        } else {
+            posOrNeg = 'Negative'
+        }
+        alert("Your number is " + (posOrNeg));
+
 } else {
     alert("Fine be that way!.");
 }
