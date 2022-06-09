@@ -17,7 +17,9 @@
 // /**
 //  * TODO:
 //  * Count Instances of a Character in a String
-//  * Create a function named charCount that takes two strings as arguments and returns the number of times the first string (the single character) is found in the second string.
+//  * Create a function named charCount that takes two strings as arguments
+//  and returns the number of times the first string (the single character)
+//  is found in the second string.
 //  *
 //  * Examples
 //  * >> charCount("a", "edabit") ➞ 1
@@ -28,7 +30,7 @@
 //  * Your output must be case-sensitive (see second example).
 //  */
 
-function charCount()
+//function charCount()
 
 
 // /**
