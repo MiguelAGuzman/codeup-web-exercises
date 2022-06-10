@@ -26,7 +26,7 @@
     //  * string, and <li> tags around each planet.
     //  */
 
-    var planetString = planetsArray.join(', ');
+    let planetString = planetsArray.join(" <br> ");
     console.log(planetString);
 
 

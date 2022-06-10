@@ -12,7 +12,16 @@
     //  *  > console.log(person.lastName) // "Sanchez"
     //  */
 
-
+    // let person = {
+    //     firstName: 'Miguel ',
+    //     lastName: 'Guzman',
+    //     sayHello: function() {
+    //         console.log('Hello from ' + this.firstName + this.lastName + '!');
+    //     }
+    // };
+    //
+    // console.log(person.firstName);
+    // console.log(person.lastName);
 
     // /**
     //  * TODO:
@@ -23,6 +32,11 @@
     //  * Example
     //  * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
     //  */
+
+
+
+    // person.sayHello()
+
 
     // /** TODO:
     //  * HEB has an offer for the shoppers that buy products amounting to
@@ -38,11 +52,22 @@
     //  * and console.log the relevant messages for each person
     //  */
 
-    // var shoppers = [
+    // let shoppers = [
     //     {name: 'Cameron', amount: 180},
     //     {name: 'Ryan', amount: 250},
     //     {name: 'George', amount: 320}
     // ];
+    //
+    // function totalPrice(shopperArray) {
+    //     shopperArray.forEach(function(shopper) {
+    //         if (shopper.amount > 200) {
+    //             console.log(shopper.name + ' pays ' + shopper.amount * .88);
+    //         } else {
+    //             console.log(shopper.name + ' pays ' + shopper.amount);
+    //         }
+    //     })
+    // }
+    // totalPrice(shoppers)
 
     // /** TODO:
     //  * Create an array of objects that represent books and store it in a
@@ -56,6 +81,35 @@
     //  * > console.log(books[0].author.firstName) // "Douglas"
     //  * > console.log(books[0].author.lastName) // "Adams"
     //  */
+
+    let books = [
+        {
+           title: 'The Salmon of Doubt',
+           authorFirstName: 'Douglas',
+           authorLastName: 'Adams'
+        },
+        {
+            title: 'American Gods',
+            authorFirstName: 'Neil',
+            authorLastName: 'Gaiman'
+        },
+        {
+            title: 'Gates of Fire',
+            authorFirstName: 'Steven',
+            authorLastName: 'Pressfield'
+        },
+        {
+            title: 'Dune',
+            authorFirstName: 'Frank',
+            authorLastName: 'Herbert'
+        },
+        {
+            title: 'The Lord of the Rings',
+            authorFirstName: 'John',
+            authorLastName: 'Tolkien'
+        }
+    ];
+
 
     // /**
     //  * TODO:
@@ -82,6 +136,16 @@
     //  *      ...
     //  */
 
+    function bookInfo(bookArray) {
+        bookArray.forEach(function(book, index) {
+            console.log('Book # ' + (index + 1) + '\n' +
+            book.title + '\n' +
+            book.authorFirstName + ' ' + book.authorLastName);
+        })
+    }
+    bookInfo(books);
+
+
     // /**
     //  * Bonus:
     //  * - Create a function named `createBook` that accepts a title and author
@@ -92,5 +156,9 @@
     //  *   outputs the information described above. Refactor your loop to use your
     //  *   `showBookInfo` function.
     //  */
+
+
+
+
 
 })();
