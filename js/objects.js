@@ -12,16 +12,16 @@
     //  *  > console.log(person.lastName) // "Sanchez"
     //  */
 
-    // let person = {
-    //     firstName: 'Miguel ',
-    //     lastName: 'Guzman',
-    //     sayHello: function() {
-    //         console.log('Hello from ' + this.firstName + this.lastName + '!');
-    //     }
-    // };
-    //
-    // console.log(person.firstName);
-    // console.log(person.lastName);
+    let person = {
+        firstName: 'Miguel ',
+        lastName: 'Guzman',
+        sayHello: function() {
+            console.log('Hello from ' + this.firstName + this.lastName + '!');
+        }
+    };
+
+    console.log(person.firstName);
+    console.log(person.lastName);
 
     // /**
     //  * TODO:
@@ -35,7 +35,7 @@
 
 
 
-    // person.sayHello()
+    person.sayHello()
 
 
     // /** TODO:
@@ -52,22 +52,22 @@
     //  * and console.log the relevant messages for each person
     //  */
 
-    // let shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320}
-    // ];
-    //
-    // function totalPrice(shopperArray) {
-    //     shopperArray.forEach(function(shopper) {
-    //         if (shopper.amount > 200) {
-    //             console.log(shopper.name + ' pays ' + shopper.amount * .88);
-    //         } else {
-    //             console.log(shopper.name + ' pays ' + shopper.amount);
-    //         }
-    //     })
-    // }
-    // totalPrice(shoppers)
+    let shoppers = [
+        {name: 'Cameron', amount: 180},
+        {name: 'Ryan', amount: 250},
+        {name: 'George', amount: 320}
+    ];
+
+    function totalPrice(shopperArray) {
+        shopperArray.forEach(function(shopper) {
+            if (shopper.amount > 200) {
+                console.log(shopper.name + ' pays ' + shopper.amount * .88);
+            } else {
+                console.log(shopper.name + ' pays ' + shopper.amount);
+            }
+        })
+    }
+    totalPrice(shoppers)
 
     // /** TODO:
     //  * Create an array of objects that represent books and store it in a
