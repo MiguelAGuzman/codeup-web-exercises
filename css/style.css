@@ -1,4 +1,55 @@
 .fancy-header {
+    text-align: center;
     color: purple;
     text-decoration: underline;
+}
+
+h2 {
+    color: cornflowerblue;
+    text-decoration: underline;
+}
+
+body{
+    background-image: url("/img/beach.jpg");
+    background-size: 1500px 1500px;
+    background-color: crimson;
+    font-family: fantasy;
+}
+
+ul {
+    list-style: circle;
+}
+
+ol {
+    list-style: lower-greek;
+}
+
+table {
+    padding: 10px;
+    border: 5px solid crimson;
+    background-color: yellowgreen;
+    text-align: center;
+}
+
+td {
+    padding: 20px;
+    border: 5px solid crimson;
+}
+
+tr {
+    padding: 20px;
+    border: 5px solid crimson;
+}
+
+a:link {
+    color: darkorange;
+}
+a:visited {
+    color: aqua;
+}
+a:hover {
+    color: yellowgreen;
+}
+a:active {
+    color: darkmagenta;
 }
