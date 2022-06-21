@@ -1,0 +1,47 @@
+.nav-bar {
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+}
+
+.nav-items {
+    box-sizing: border-box;
+    list-style: none;
+    font-family: "Work Sans";
+    display: inline-block;
+    padding: 5px;
+}
+.nav-items:hover {
+    color: blue;
+}
+
+.logo {
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    font-size: 3em;
+    padding: .2em;
+    margin: auto;
+    display: inline-block;
+}
+.logo:hover{
+    color: blue;
+}
+.social-media {
+    box-sizing: border-box;
+    list-style-type: none;
+    font-family: "Work Sans";
+    display: inline-block;
+    padding: 5px;
+
+}
+.social-media:hover:nth-of-type(2) {
+    color: blue;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    color: blue;
+}
