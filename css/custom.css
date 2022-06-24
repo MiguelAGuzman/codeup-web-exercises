@@ -1,10 +1,22 @@
 .jumbotron {
     height: 346px;
+    background-image: url("../img/pizza.png");
     background-size: cover;
-}
-.container-pizza {
+    margin: 0;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.banner {
+    display: flex;
+    width: 100%;
+    background: rgba(255,255,255,50%);
+    justify-content: center;
+}
+
+.container-pizza {
+
+    margin: 0 3em;
 }
 .tab-content {
     display: flex;
@@ -17,9 +29,14 @@
 }
 .card {
     display: flex;
+    margin: 1em;
 }
 .card-header {
     display: flex;
+}
+.card-footer {
+    display: flex;
+    justify-content: right;
 }
 
 .container-fluid {
