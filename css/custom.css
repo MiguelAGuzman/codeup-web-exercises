@@ -1,3 +1,27 @@
+.jumbotron {
+    height: 346px;
+    background-size: cover;
+}
+.container-pizza {
+    display: flex;
+    flex-direction: column;
+}
+.tab-content {
+    display: flex;
+    box-sizing: border-box;
+    margin: 0;
+}
+.tab-pane {
+    display: flex;
+    width: 100%;
+}
+.card {
+    display: flex;
+}
+.card-header {
+    display: flex;
+}
+
 .container-fluid {
     display: inline-block;
     justify-content: left;
@@ -9,7 +33,3 @@
 
 
 
-.jumbotron {
-    height: 346px;
-    background-size: cover;
-}
