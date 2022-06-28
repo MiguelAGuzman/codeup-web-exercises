@@ -40,13 +40,40 @@
 }
 
 .container-fluid {
-    display: inline-block;
+    display: flex;
     justify-content: left;
     padding: 0;
+    height: 50px;
 }
 
+.pizza-world-link {
+    font-size: 24px;
+}
 
+.order-online-link {
+    font-size: 18px;
+}
 
+.menu-link {
+    font-size: 18px;
+}
 
+.navbar-brand {
+    display: flex;
+    justify-content: left;
+    margin: 0;
+}
 
-
+.navbar {
+    display: flex;
+    justify-content: left;
+}
+.d-flex {
+    color: cornflowerblue;
+    height: 50px;
+}
+.btn-outline-success {
+    color: cornflowerblue;
+    width: 350px;
+    border-color: cornflowerblue;
+}
