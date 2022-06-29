@@ -1,3 +1,4 @@
+"use strict";
 // let hello = "hello world";
 // let myName = "bob";
 // let myLastName = "smith";
@@ -19,6 +20,8 @@
 //     console.log(myLastName.charAt(i));
 // }
 
+
+// let myValue = 1
 // let done = false;
 // //start command loop
 // while (!done) {
@@ -36,11 +39,21 @@
 //         done = true;
 //     } else if (userChoice === "1") {
 //         console.log(`myValue = ${myValue}`);
-//     } else if ()
+//     } else if (userChoice === "2") {
+//         myValue++;
+//     } else {
+//         console.log('Did not understand your choice ' + userChoice)
+//     }
 //
     //start loop over if we didn't exit
 // }
-
-//after quitting, keep going from here
+//
+// //after quitting, keep going from here
 // console.log("program is over");
+
+
+
+
+
+
 
