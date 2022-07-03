@@ -9,11 +9,11 @@
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
 
-// function sayHello(name) {
-//    return ("Hello " + name);
-// }
-//
-// console.log(sayHello('Miguel'));
+function sayHello(name) {
+   return ("Hello " + name);
+}
+
+console.log(sayHello('Miguel'));
 
 
 /**
@@ -24,8 +24,8 @@
  * console.log 'helloMessage' to check your work
  */
 
-//let helloMessage = sayHello("Miguel")
-//console.log(helloMessage);
+let helloMessage = sayHello("Miguel")
+console.log(helloMessage);
 
 /**
  * TODO:
@@ -58,11 +58,11 @@ var random = Math.floor((Math.random() * 3) + 1);
  * number)
  */
 
-//function isTwo(x) {
-//    return x == 2;
-//}
-//isTwo(random);
-//console.log(isTwo(random));
+function isTwo(x) {
+   return x == 2;
+}
+isTwo(random);
+console.log(isTwo(random));
 /**
  * TODO:
  * Create a function named 'calculateTip' to calculate a tip on a bill at a
