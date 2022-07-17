@@ -9,9 +9,18 @@
 <script>
     "use strict";
 
+    let keysPressed = [];
+
     document.addEventListener("keyup", function(event) {
-        console.log(event.keyCode);
+        keysPressed.push(event.key);
+        console.log("You have pressed: " + keysPressed.toString());
+
+        if(enteredKonamiCode() === true) {
+            console.log("God mode activated!");
+        }
     });
+
+
 </script>
 </body>
 </html>
