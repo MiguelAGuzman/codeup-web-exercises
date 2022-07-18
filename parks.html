@@ -117,6 +117,27 @@
         })
     </script>
 
+    <script>
+        const h3s = document.querySelectorAll("h3");
+        h3s.forEach(function(h3) {
+            h3.addEventListener("click", function(event) {
+                const lis = this.nextElementSibling.children;
+                for (let i = 0; i < lis.length ; i++) {
+                    lis[i].style.fontWeight = "bold";
+                }
+            });
+        });
+
+        const allLis = document.querySelectorAll("li");
+        allLis.forEach(function(li) {
+            li.addEventListener("click", function(event) {
+                const firstLi = this.parentElement.firstElementChild;
+                firstLi.style.color = "blue";
+            })
+        });
+
+    </script>
+
 </div>
 
 

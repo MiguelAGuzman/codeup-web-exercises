@@ -1,0 +1,2 @@
+const WEATHER_MAP_API = f0c7da768b3dc6d013f5ebcefabd6c42
+const MAPBOX_API = pk.eyJ1IjoibWFkbWFyY29zIiwiYSI6ImNsNXI2ZzNyejBpMzMzZ21lc2k2ZTdtNWMifQ.qKxrF4pu8tvAxzB91f7HYw
