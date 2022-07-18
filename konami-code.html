@@ -20,6 +20,41 @@
         }
     });
 
+    function enteredKonamiCode() {
+        const konamiCode = "ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,b,a,Enter";
+        if(keysPressed.toString().includes(konamiCode) === true) {
+            keysPressed.length = 0;
+            return true;
+        }
+        return false;
+    }
+
+    window.setTimeout(function() {
+        console.log("Faking a key press");
+        // document.createEvent();
+        let event = new KeyboardEvent('keyup', {
+            'key': 'w'
+        })
+        document.dispatchEvent(event);
+
+        event = new KeyboardEvent('keyup', {
+            'key': 'a'
+        })
+        document.dispatchEvent(event);
+
+        event = new KeyboardEvent('keyup', {
+            'key': 's'
+        })
+        document.dispatchEvent(event);
+
+        event = new KeyboardEvent('keyup', {
+            'key': 'd'
+        })
+        document.dispatchEvent(event);
+
+    }, 5000);
+
+
 
 </script>
 </body>
