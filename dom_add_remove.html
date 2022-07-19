@@ -71,8 +71,13 @@
                      </div>
                     <div className = "card-footer">
                     <button className = "delete-todo">Delete Todo</button>
-                    </div>`
+                    </div>
+                    `;
+                addDeleteListeners();
+                document.querySelector("#add-todo-text").value = "";
+                validateFields();
             }
+            document.querySelector("#add-todo").addEventListener("click", addTodo);
 
             function deleteTodo(event) {
 
