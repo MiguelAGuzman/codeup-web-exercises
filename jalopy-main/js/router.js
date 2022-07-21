@@ -1,4 +1,4 @@
-import Home, {HomeEvents} from "./views/Home.js";
+import homeHTMLFunction, {homeJSFunction} from "./views/Home.js";
 import About, {AboutEvents} from "./views/About.js";
 import Error404 from "./views/Error404.js";
 import Loading from "./views/Loading.js";
@@ -9,6 +9,7 @@ import {RegisterEvent} from "./views/Register.js";
 import UserIndex, {UserEvents} from "./views/User.js";
 import Logout, {LogoutEvents} from "./views/Logout.js";
 
+
 /**
  * Returns the route object for a specific route based on the given URI
  * @param URI
@@ -17,11 +18,11 @@ import Logout, {LogoutEvents} from "./views/Logout.js";
 export default function router(URI) {
     const routes = {
         '/': {
-            returnView: Home,
+            returnView: homeHTMLFunction,
             state: {},
             uri: '/',
             title: 'Home',
-            viewEvent: HomeEvents
+            viewEvent: homeJSFunction
         },
         '/logout': {
             returnView: Logout,
