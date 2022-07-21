@@ -1,10 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>AJAX Blog</title>
+
+    <style>
+        #posts {
+            text-align: center;
+            background-color: #DDDDDD;
+            color: coral;
+            font-family: "Montserrat", sans-serif;
+        }
+    </style>
 </head>
 <body>
-$END$
+    <div id="posts"></div>
+
+<script>
+    (async function () {
+        "use strict";
+
+        async function pullJSON() {
+            await fetch("data/blog.json")
+                .then(function (response) {
+                    // console.log("fetch");
+                    if(response.status !== 200) {
+                        console.log("please wait");
+                        return [];
+                    } else {
+                        return response.json();
+                    }
+                }).then(function (data) {
+                    let output = document.querySelector("#posts");
+                    for (let i = 0; i < data.length; i++) {
+                        let blog = data[i]
+                        let newRow = "<div>" +
+                            "<p>" + blog.title + "</p>" +
+                            "<p>" + blog.content + "</p>" +
+                            "<p>" + blog.categories + "</p>" +
+                            "<p>" + blog.date + "</p>" +
+                            "</div>"
+                        output.innerHTML += (newRow)
+                    }
+                });
+        }
+        pullJSON();
+
+    })();
+</script>
+
 </body>
 </html>
