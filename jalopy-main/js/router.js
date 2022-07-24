@@ -8,7 +8,8 @@ import Register from "./views/Register.js"
 import {RegisterEvent} from "./views/Register.js";
 import UserIndex, {UserEvents} from "./views/User.js";
 import Logout, {LogoutEvents} from "./views/Logout.js";
-
+import DogFactsView, {DogFactsEvents} from "./views/DogFacts.js";
+import QuotesView, {QuotesEvents} from "./views/Quotes.js";
 
 /**
  * Returns the route object for a specific route based on the given URI
@@ -23,6 +24,36 @@ export default function router(URI) {
             uri: '/',
             title: 'Home',
             viewEvent: homeJSFunction
+        },
+        '/quotes': {
+            returnView: QuotesView,
+            state: {
+                quotes: {
+                    url: "https://quotes.fulgentcorp.com:12250/api/v1/quotes?random=true&limit=10",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Authorization': DOG_QUOTE_API_KEY
+                    }
+                }
+            },
+            uri: '/quotes',
+            title: 'Quotes',
+            viewEvent: QuotesEvents
+        },
+        '/dogs': {
+            returnView: DogFactsView,
+            state: {
+                dogFacts: {
+                    url: "https://dogfacts.fulgentcorp.com:12250/v1/facts?random=true&limit=10",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Authorization': DOG_QUOTE_API_KEY
+                    }
+                }
+            },
+            uri: '/dogs',
+            title: 'Dog Facts',
+            viewEvent: DogFactsEvents
         },
         '/logout': {
             returnView: Logout,
