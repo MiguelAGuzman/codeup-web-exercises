@@ -27,7 +27,7 @@ export default function router(URI) {
             title: 'Home',
             viewEvent: homeJSFunction
         },
-        '/insert-quote': {
+        '/insertQuote': {
             returnView: InsertQuoteView,
             state: {},
             uri: '/insert-quote',
@@ -36,15 +36,7 @@ export default function router(URI) {
         },
         '/quotes': {
             returnView: QuotesView,
-            state: {
-                quotes: {
-                    url: "https://quotes.fulgentcorp.com:12250/api/v1/quotes?random=true&limit=10",
-                    headers: {
-                        'Accept': 'application/json',
-                        'Authorization': DOG_QUOTE_API_KEY
-                    }
-                }
-            },
+            state: {},
             uri: '/quotes',
             title: 'Quotes',
             viewEvent: QuotesEvents
