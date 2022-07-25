@@ -59,6 +59,8 @@ export default function QuotesView(props) {
 
 <div id="my-quotes">
 
+<button id="add-quote">Add Quote</button>
+
 </div>
 
 `;

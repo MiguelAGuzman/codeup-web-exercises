@@ -1,3 +1,5 @@
+import InsertDogView, {InsertDogFactEvents} from "./views/AddDogFact.js";
+import InsertQuoteView, {InsertQuoteEvents} from "./views/AddQuote.js";
 import homeHTMLFunction, {homeJSFunction} from "./views/Home.js";
 import About, {AboutEvents} from "./views/About.js";
 import Error404 from "./views/Error404.js";
@@ -25,6 +27,13 @@ export default function router(URI) {
             title: 'Home',
             viewEvent: homeJSFunction
         },
+        '/insert-quote': {
+            returnView: InsertQuoteView,
+            state: {},
+            uri: '/insert-quote',
+            title: 'Insert Quote',
+            viewEvent: InsertQuoteEvents
+        },
         '/quotes': {
             returnView: QuotesView,
             state: {
@@ -39,6 +48,13 @@ export default function router(URI) {
             uri: '/quotes',
             title: 'Quotes',
             viewEvent: QuotesEvents
+        },
+        '/insert-dog-fact': {
+            returnView: InsertDogView,
+            state: {},
+            uri: '/insert-dog-fact',
+            title: 'Insert Dog Fact',
+            viewEvent: InsertDogFactEvents
         },
         '/dogs': {
             returnView: DogFactsView,
