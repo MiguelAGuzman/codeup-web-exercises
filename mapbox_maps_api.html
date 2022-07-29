@@ -39,7 +39,7 @@
             justify-content: center;
             text-align: center;
             font-family: 'Mochiy Pop One', sans-serif;
-            font-size: 6.5vw;
+            font-size: 3em;
             font-weight: 900;
             line-height: 6vw;
             text-transform: uppercase;
@@ -78,10 +78,7 @@
             initial-value: 0deg;
             inherits: false;
         }
-        .map {
-            display: inline-block;
-            justify-content: center;
-            align-items: center;
+        #map {
             grid-area: map;
             width: 600px;
             height: 600px;
@@ -127,7 +124,7 @@
 <body>
 <h1>Mapbox API</h1>
 <div id="grid-container">
-    <div id='map' class="map"></div>
+    <div id='map'></div>
     <div class="buttons">
         <button id="zoom-in">+</button>
         <button id="zoom-out">-</button>
@@ -135,7 +132,7 @@
     </div>
 </div>
 
-<!--<script src="js/mapbox-geocoder-utils.js"></script>-->
+<script src="js/mapbox-geocoder-utils.js"></script>
 <script>
     (async function() {
 
