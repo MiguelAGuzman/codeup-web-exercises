@@ -5,22 +5,137 @@
     <title>Mapbox API</title>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet">
     <style>
-        #map {
+        :root {
+            --color-1: #442288;
+            --color-2: #6ca2ea;
+            --color-3: #b5d33d;
+            --color-4: #fed23f;
+            --color-5: #eb7d5b;
+            --angle: 0deg;
+        }
+        body {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            height: 100vh;
+        }
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        h1 {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            font-family: 'Mochiy Pop One', sans-serif;
+            font-size: 6.5vw;
+            font-weight: 900;
+            line-height: 6vw;
+            text-transform: uppercase;
+            word-spacing: 100vw;
+            background: linear-gradient(
+                    var(--angle),
+                    var(--color-1) 19%,
+                    transparent 19%,
+                    transparent 20%,
+                    var(--color-2) 20%,
+                    var(--color-2) 39%,
+                    transparent 39%,
+                    transparent 40%,
+                    var(--color-3) 40%,
+                    var(--color-3) 59%,
+                    transparent 59%,
+                    transparent 60%,
+                    var(--color-4) 60%,
+                    var(--color-4) 79%,
+                    transparent 79%,
+                    transparent 80%,
+                    var(--color-5) 80%
+            );
+            background-clip: content-box;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: 10s rotate linear infinite;
+        }
+        @keyframes rotate {
+            to {
+                --angle: 360deg;
+            }
+        }
+        @property --angle {
+            syntax: "<angle>";
+            initial-value: 0deg;
+            inherits: false;
+        }
+        .map {
+            display: inline-block;
+            justify-content: center;
+            align-items: center;
             grid-area: map;
-            width: 100%;
-            height: 700px;
+            width: 600px;
+            height: 600px;
             border-radius: 10px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+        }
+        #zoom-in, #zoom-out, #drop-marker {
+
+            display: inline-block;
+            outline: 0;
+            border: 0;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative;
+            color: #000;
+            background: #fff;
+            margin: 10px;
+            line-height: 30px;
+            border-radius: 40px;
+            padding: 20px;
+            font-size: 30px;
+            font-weight: 600;
+            box-shadow: rgb(255, 198, 0) -2px -2px 0 2px, rgb(246, 84, 174) 0 0 0 4px, rgba(0, 0, 0, 0.05) 0 0 2px 7px;
+            transition: all 0.2s;
+        }
+        #zoom-in:hover {
+            box-shadow: rgb(246, 84, 174) -2px -2px 0 2px, rgb(255, 198, 0) 0 0 0 4px, rgba(0, 0, 0, 0.05) 0 0 2px 7px;
+            transform: scale(1.01);
+        }
+        #zoom-out:hover {
+            box-shadow: rgb(246, 84, 174) -2px -2px 0 2px, rgb(255, 198, 0) 0 0 0 4px, rgba(0, 0, 0, 0.05) 0 0 2px 7px;
+            transform: scale(1.01);
+        }
+        #drop-marker:hover {
+            box-shadow: rgb(246, 84, 174) -2px -2px 0 2px, rgb(255, 198, 0) 0 0 0 4px, rgba(0, 0, 0, 0.05) 0 0 2px 7px;
+            transform: scale(1.01);
         }
     </style>
 </head>
 <body>
+<h1>Mapbox API</h1>
 <div id="grid-container">
-    <div id='map'></div>
-    <button id="zoom-in">+</button>
-    <button id="zoom-out">-</button>
-    <button id="drop-marker">Marker</button>
+    <div id='map' class="map"></div>
+    <div class="buttons">
+        <button id="zoom-in">+</button>
+        <button id="zoom-out">-</button>
+        <button id="drop-marker">Marker</button>
+    </div>
 </div>
+
+<!--<script src="js/mapbox-geocoder-utils.js"></script>-->
 <script>
     (async function() {
 
@@ -47,6 +162,7 @@
             currentZoom--;
             map.setZoom(currentZoom);
         });
+
 
         document.querySelector("#drop-marker").addEventListener("click", function (event) {
             let popup = new mapboxgl.Popup();
