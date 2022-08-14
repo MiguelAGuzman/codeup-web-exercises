@@ -56,7 +56,6 @@
         (async function () {
             "use strict";
 
-            let newMarker;
 
             mapboxgl.accessToken = MAPBOX_API_KEY;
             const map = new mapboxgl.Map({
@@ -66,8 +65,6 @@
                 center: [-98.4916, 29.4252]
             });
 
-            map.addControl(new mapboxgl.GeolocateControl());
-            map.addControl(new mapboxgl.NavigationControl());
             map.addControl(
                 new MapboxGeocoder({
                     accessToken: mapboxgl.accessToken,
@@ -103,123 +100,6 @@
                     `;
                 }
             });
-
-            // Function to geocode addresses with fetch to mapbox.
-            function getLngLatFromAddress(address, token = MAPBOX_API_KEY) {
-                const baseUrl = 'https://api.mapbox.com';
-                const endPoint = '/geocoding/v5/mapbox.places/';
-                return fetch(baseUrl + endPoint + encodeURIComponent(address) + '.json' + "?" + 'access_token=' + token)
-                    .then(function (res) {
-                        return res.json();
-                        // to get all the data from the request, comment out the following three lines...
-                    }).then(function (data) {
-                        return data.features[0].center;
-                    });
-            }
-
-            // Various zoom options with buttons and select
-            let zoomInBtn = document.getElementById(`zoomIn`);
-            zoomInBtn.addEventListener("click", function (event) {
-                let currentZoom = map.getZoom();
-                currentZoom += 2;
-                map.setZoom(currentZoom);
-            });
-            let zoomOutBtn = document.getElementById(`zoomOut`);
-            zoomOutBtn.addEventListener("click", function (event) {
-                let currentZoom = map.getZoom();
-                currentZoom -= 2;
-                map.setZoom(currentZoom);
-            });
-            let zoomSelect = document.getElementById(`zoomSelect`);
-            console.log(`Logging currently selected zoom value: ${zoomSelect.value}`);
-            zoomSelect.addEventListener("change", function (event) {
-                console.log(zoomSelect.value);
-                map.setZoom(zoomSelect.value);
-            });
-
-            const currentMarkers = [];
-            // Allows user to enter any place or address and have a marker appear on
-            // that place.
-            // Markers are added to a current marker array for optional removal.
-            let searchBtn = document.getElementById(`searchBtn`);
-            let searchInput = document.getElementById(`searchInput`);
-            searchBtn.addEventListener('click', async function (event) {
-                console.log(searchInput.value);
-                let searchCoords = (await getLngLatFromAddress(searchInput.value));
-                map.setCenter(searchCoords);
-                newMarker.remove();
-                newMarker = new mapboxgl.Marker({draggable: true});
-                newMarker.setLngLat(searchCoords);
-                newMarker.addTo(map);
-                onDragEnd();
-                newMarker.on('dragend', onDragEnd);
-                currentMarkers.push(newMarker);
-            })
-
-            const input = document.getElementById("searchInput");
-            // Execute a function when the user releases a key on the keyboard
-            input.addEventListener("keyup", function(event) {
-                // Number 13 is the "Enter" key on the keyboard
-                if (event.keyCode === 13) {
-                    // Cancel the default action, if needed
-                    event.preventDefault();
-                    // Trigger the button element with a click
-                    document.getElementById("searchBtn").click();
-                }
-            });
-
-            let removeMarkersBtn = document.getElementById(`removeMarkersBtn`);
-            removeMarkersBtn.addEventListener("click", function (event) {
-                if (currentMarkers !== null) {
-                    for (let i = currentMarkers.length - 1; i >= 0; i--) {
-                        currentMarkers[i].remove();
-                    }
-                }
-            })
-
-            const coordinates = document.getElementById('coordinates');
-            newMarker = new mapboxgl.Marker({
-                draggable: true
-            })
-
-            function onDragEnd() {
-                const lngLat = newMarker.getLngLat();
-                console.log(lngLat);
-                coordinates.style.display = 'block';
-                coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
-                map.setCenter(lngLat);
-                // OpenWeather API call
-                let queryParams = new URLSearchParams({
-                    APPID: WEATHERMAP_API_KEY,
-                    lat: lngLat.lat,
-                    lon: lngLat.lng,
-                    units: "imperial"
-                });
-                console.log(queryParams);
-                const url = `https://api.openweathermap.org/data/2.5/onecall?${queryParams}`;
-                console.log(url);
-                fetch(url)
-                    .then(function (response) {
-                        return response.json();
-                    }).then(function (data) {
-                    console.log(data);
-                    let weatherDataDiv = document.getElementById(`weatherData`);
-                    weatherDataDiv.innerHTML = ""
-                    for (let i = 0; i < 5; i++) {
-                        weatherDataDiv.innerHTML += `
-                            <div class="cards">
-                                <div><h1>${date.toDateString()}</h1></div>
-                                <div><h1>${data.daily[i].temp.day}°</h1></div>
-                                <div><h2>${data.daily[i].weather[0].description}</h2></div>
-                                <div><p>Humidity ${data.daily[i].humidity}%</p></div>
-                            </div> <br>
-                        `
-                    }
-                });
-            }
-
-            newMarker.on('dragend', onDragEnd);
-
 
         })();
     </script>
