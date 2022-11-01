@@ -3,10 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="js/map-filter-reduce.js"></script>
+<!--    <script src="js/map-filter-reduce.js"></script>-->
 
 </head>
 <body>
 
+<!--    <div class="about-card">-->
+<!--        <img class="ppl-img" alt="" id="miguel-pic">-->
+
+<!--        <div class="card-body">-->
+<!--            <h5 class="card-title">-->
+<!--                Miguel<br>Guzman-->
+<!--            </h5>-->
+<!--            <p>Full Stack Developer & Army Veteran</p>-->
+<!--        </div>-->
+
+<!--        <div class="social-links">-->
+<!--            <a href="www.linkedin.com/in/miguelguzmanwd"><i class="fa-brands fa-linkedin-in fa-xl">L</i></a>-->
+<!--            <a href="https://github.com/MiguelAGuzman"><i class="fa-brands fa-github fa-xl">G</i></a>-->
+<!--            <a href="alumni-link"><i class="fa-solid fa-user-graduate fa-xl mx-1">A</i></a>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <div class="about-card">-->
+<!--        <img class="ppl-img" alt="" id="pic2">-->
+
+<!--        <div class="card-body">-->
+<!--            <h5 class="card-title">-->
+<!--                Ryan<br>Yoshimura-->
+<!--            </h5>-->
+<!--            <p>Full Stack Developer & Army Veteran</p>-->
+<!--        </div>-->
+
+<!--        <div class="social-links">-->
+<!--            <a href="www.linkedin.com/in/miguelguzmanwd"><i class="fa-brands fa-linkedin-in fa-xl"></i>L</a>-->
+<!--            <a href="https://github.com/MiguelAGuzman"><i class="fa-brands fa-github fa-xl">G</i></a>-->
+<!--            <a href="alumni-link"><i class="fa-solid fa-user-graduate fa-xl mx-1"></i>A</a>-->
+<!--        </div>-->
+<!--    </div>-->
+<input id="search-bar">
+<div id="container"></div>
+
+
+<script>
+
+    const userInput2 = document.querySelector('#search-bar');
+
+    userInput2.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            let userInput  = userInput2.value;
+            getAPI(userInput);
+        }
+    });
+
+    function getAPI(userWant){
+       return fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=d2ecbe1149a34180a752204407a10c5b&query=${userWant}&number=50`).then(resp => resp.json()).then(food =>{
+           let foodArray =[];
+           for (let i = 0; i < 19; i++) {
+               foodArray.push(food.results[i])
+           }
+           console.log(foodArray)
+           let html = "";
+        foodArray.forEach(function(element, index){
+            html += `
+            <h3 classname="card-title">${element.title}</h3>`
+        })
+           const recipesContainer = document.querySelector("#container");
+           recipesContainer.innerHTML = html;
+
+       //dont delete this
+       }).catch(erre => console.log(erre));
+    }
+
+
+</script>
 </body>
 </html>
